@@ -2,6 +2,30 @@
   text-align: center;
 }
 
+.App button{
+  border: 1px solid blue;
+  padding: 16px;
+  background-color: green;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+}
+
+.App button:hover{
+  background-Color: lightgreen;
+  color: black;
+}
+
+.App button.red{
+  background-color: red;
+
+}
+
+.App button.red:hover{
+  background-Color: salmon;
+  color: black;
+}
+
 .red {
   color: red;
 }

@@ -16,7 +16,7 @@ class App extends Component {
 
   deletePersonHandler = (personIndex) =>{
     // const persons = this.state.persons.slice(); //create a copy 
-    const persons = [... this.state.persons];
+    const persons = [...this.state.persons];
     persons.splice(personIndex,1); //delete element
     this.setState({persons: persons})
   }
@@ -30,7 +30,7 @@ class App extends Component {
     if (person !== null)
     {
       person.name = event.target.value;
-      const persons = [... this.state.persons];
+      const persons = [...this.state.persons];
       persons[personIndex] = person;
   
       this.setState( {persons: persons } );
@@ -59,6 +59,7 @@ class App extends Component {
     };   
 
     let persons = null;
+    let btnClass = '';
 
     if (this.state.showPersons){
         persons =(
@@ -78,6 +79,8 @@ class App extends Component {
           backgroundColor: 'salmon',
           color: 'black'
         }
+
+        btnClass = 'red';
     }
 
     const classes = [];
@@ -94,7 +97,8 @@ class App extends Component {
           <h1>Hi, I'm a React App</h1>
           <p className= {classes.join(' ')}>This is really working!</p>
           <button 
-          style={style}
+          //style={style}
+          className= {btnClass}
           onClick={this.tooglePersonHandler}>Toggle Persons</button>
           {persons}
         </div>
