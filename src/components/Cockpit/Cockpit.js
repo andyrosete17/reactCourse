@@ -21,7 +21,6 @@ if (props.showPerson) {
         <h1>{props.title}</h1>
         <p className={classes.join(' ')}>This is really working!</p>
         <button
-          //style={style}
           className={btnClass}
           onClick={props.clicked}>Toggle Persons</button>
     </div>
