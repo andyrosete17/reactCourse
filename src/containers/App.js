@@ -34,6 +34,16 @@ class App extends Component {
   //   console.log('App.js componentWillMount');
   // }
 
+  componentDidUpdate(){
+    console.log('App.js componentDidUpdate');
+  }
+  
+  //Indica si el componente debe actualizarse o renderizarse
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('App.js shouldComponentUpdate');
+    return true;
+  }
+
   deletePersonHandler = (personIndex) =>{
     // const persons = this.state.persons.slice(); //create a copy 
     const persons = [...this.state.persons];
