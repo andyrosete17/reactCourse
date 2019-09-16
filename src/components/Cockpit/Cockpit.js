@@ -1,7 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Cockpit.css';
 
 const  cockpit = (props) =>{
+
+  //Execute every time persons change
+  useEffect(()=>{
+    console.log('CockPit.js useEffect');
+    //http request
+    setTimeout(() => {
+      alert('Save data to cloud');
+    }, 1000);
+  },[props.persons])
+
+  //Execute only once when the app load
+  useEffect(()=>{
+    console.log('CockPit.js useEffect');
+    //http request
+    setTimeout(() => {
+      alert('FirstTime');
+    }, 2000);
+  },[])
+
   const classes = [];
   let btnClass = '';
 
