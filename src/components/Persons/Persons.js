@@ -10,9 +10,11 @@ class Persons extends Component{
 
   shouldComponentUpdate(nextProps, nexState){
     console.log('Persons.js shouldComponentUpdate', nextProps, nexState );
-    return nextProps.persons !== this.props.persons 
-                              ? true 
-                              : false;
+    return  nextProps.persons !== this.props.persons ||
+            nextProps.changed !== this.props.changed ||
+            nextProps.clicked !== this.props.clicked
+            ? true 
+            : false;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevStates){

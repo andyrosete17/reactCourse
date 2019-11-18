@@ -3,6 +3,8 @@ import './App.css';
 import Radium, {StyleRoot} from 'radium';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import withClass from '../hoc/withClass';
+import Aux from '..//hoc/Auxiliary';
 
 class App extends Component {
 
@@ -19,7 +21,8 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
+    changeCounter: 0
   }
 
   static getDerivedStateFromProps(props, state){
@@ -64,7 +67,11 @@ class App extends Component {
       const persons = [...this.state.persons];
       persons[personIndex] = person;
   
-      this.setState( {persons: persons } );
+      this.setState((previousState, props) => {
+        return {
+          persons: persons,
+          changeCounter: previousState.state.changed +1 };
+        })
     }
     
   }
@@ -93,7 +100,7 @@ class App extends Component {
 
     return (
       <StyleRoot>
-        <div className="App">
+          <Aux>
           <button onClick= {() => {
             this.setState({showCockpit:false});
             }}>
@@ -108,10 +115,10 @@ class App extends Component {
           clicked = {this.tooglePersonHandler}/>
           ) : null}
           {persons}
-        </div>
+          </Aux>
       </StyleRoot>
     );
   }
 }
 
-export default Radium(App);
+export default Radium(withClass(App, 'App'));
