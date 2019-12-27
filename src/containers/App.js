@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
-import Persons from '../components/Persons/Persons';
-import Cockpit from '../components/Cockpit/Cockpit';
-import withClass from '../hoc/withClass';
+
+import Radium, { StyleRoot } from 'radium';
+import React, { Component } from 'react';
+
 import Aux from '..//hoc/Auxiliary';
+import Cockpit from '../components/Cockpit/Cockpit';
+import Persons from '../components/Persons/Persons';
+import withClass from '../hoc/withClass';
 
 class App extends Component {
 
@@ -70,7 +72,7 @@ class App extends Component {
       this.setState((previousState, props) => {
         return {
           persons: persons,
-          changeCounter: previousState.state.changed +1 };
+          changeCounter: previousState.changeCounter +1 };
         })
     }
     
