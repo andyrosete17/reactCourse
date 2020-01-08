@@ -1,15 +1,20 @@
-import React, {useEffect} from 'react';
 import './Cockpit.css';
+
+import React, { useEffect, useRef } from 'react';
 
 const  cockpit = (props) =>{
 
-  //Execute every time persons change
-  useEffect(()=>{
-    console.log('CockPit.js useEffect');
-    //http request
-    setTimeout(() => {
-      alert('Save data to cloud');
-    }, 1000);
+    const toggleBtnRef = useRef(null);
+
+    
+    //Execute every time persons change
+    useEffect(()=>{
+        console.log('CockPit.js useEffect');
+        //http request
+        // setTimeout(() => {
+            //   alert('Save data to cloud');
+            // }, 1000);
+            toggleBtnRef.current.click();
   },[props.persons])
 
   //Execute only once when the app load or when component is destroy
@@ -51,8 +56,11 @@ if (props.showPerson) {
         <h1>{props.title}</h1>
         <p className={classes.join(' ')}>This is really working!</p>
         <button
+        ref= {toggleBtnRef}
           className={btnClass}
-          onClick={props.clicked}>Toggle Persons</button>
+          onClick={props.clicked}>Toggle Persons
+          </button>
+          <button onClick={props.login}>Log in</button>
     </div>
   );
 }
